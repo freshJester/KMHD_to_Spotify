@@ -5,7 +5,7 @@ import time
 
 # Run these before running the script
 # source ./spotipy/Scripts/activate
-# export SPOTIPY_CLIENT_ID=8e3bd334faab4a5e85eb5c866180ec52 && export SPOTIPY_CLIENT_SECRET=1c30efaa5eb04519b932c867e27ac086 && export SPOTIPY_REDIRECT_URI=https://localhost:8888/redirect
+# export SPOTIPY_CLIENT_ID=8e3bd334faab4a5e85eb5c866180ec52 && export SPOTIPY_CLIENT_SECRET=1c30efaa5eb04519b932c867e27ac086 && export SPOTIPY_REDIRECT_URI=https://localhost:8888/callback
 
 prev_song_ids = []
 
