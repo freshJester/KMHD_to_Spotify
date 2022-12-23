@@ -3,11 +3,7 @@ from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 from urllib.request import urlopen
 import time
 
-# Run these before running the script
-# source ./spotipy/Scripts/activate
-# export SPOTIPY_CLIENT_ID=8e3bd334faab4a5e85eb5c866180ec52 && export SPOTIPY_CLIENT_SECRET=1c30efaa5eb04519b932c867e27ac086 && export SPOTIPY_REDIRECT_URI=https://localhost:8888/callback
-
-prev_song_ids = []
+prev_song_id = 0
 
 def spotify_run_query_and_add_to_playlist(song, artist):
     global prev_song_id
@@ -23,10 +19,10 @@ def spotify_run_query_and_add_to_playlist(song, artist):
 
             song_id = results['tracks']['items'][0]['id']  # Get song ID from query
 
-            if song_id not in prev_song_ids:
+            if song_id != prev_song_id:
                 print(artist, "-", song, "has been added!")
                 sp.playlist_add_items('6DiobUvq9mwFpHHb17sV8B', [song_id])  # Add song to the 'KMHD Scraper' playlist
-                prev_song_ids.append(song_id)
+                prev_song_id = song_id
         except Exception as e:
             print("Error encountered: ", e)
             # Further attempts at adding the track eventually?
